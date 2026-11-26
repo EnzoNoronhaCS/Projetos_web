@@ -1,1 +1,7 @@
-
+Exercícios de fixação
+Par ou ímpar: 8 é par; 11 é ímpar.
+Desconto: compra de R$ 199 → total R$ 199; compra de R$ 200 → total R$ 180.
+Acesso: 20 anos e cadastro ativo → Acesso liberado; 20 anos sem cadastro → Acesso negado; 16 anos com cadastro → Acesso negado.
+Saudação no DOM: campo vazio → "Preencha o nome."; nome Enzo → "Olá, Enzo!".
+Temperatura: 17,9 → Frio; 18 → Agradável; 27,9 → Agradável; 28 → Quente.
+Desafio de validação: o laboratório de média informa qual campo está inválido, por exemplo "Erro: campo vazio (Nota 2)."
