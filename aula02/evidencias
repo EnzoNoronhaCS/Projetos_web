@@ -1,7 +1,118 @@
 Exercícios de fixação
-Par ou ímpar: 8 é par; 11 é ímpar.
-Desconto: compra de R$ 199 → total R$ 199; compra de R$ 200 → total R$ 180.
-Acesso: 20 anos e cadastro ativo → Acesso liberado; 20 anos sem cadastro → Acesso negado; 16 anos com cadastro → Acesso negado.
-Saudação no DOM: campo vazio → "Preencha o nome."; nome Enzo → "Olá, Enzo!".
-Temperatura: 17,9 → Frio; 18 → Agradável; 27,9 → Agradável; 28 → Quente.
-Desafio de validação: o laboratório de média informa qual campo está inválido, por exemplo "Erro: campo vazio (Nota 2)."
+
+
+Exercício 1 — Par ou ímpar
+8 é par; 11 é ímpar.
+let numero = 8;
+if (numero % 2 === 0) {
+  console.log(numero + " é par");
+} else {
+  console.log(numero + " é ímpar");
+}
+
+numero = 11;
+if (numero % 2 === 0) {
+  console.log(numero + " é par");
+} else {
+  console.log(numero + " é ímpar");
+}
+
+
+
+Exercício 2 — Desconto
+Uma compra de R$ 199 fica com total de R$ 199. Uma compra de R$ 200 fica com total de R$ 180.
+let valorCompra = 199;
+let total = valorCompra;
+if (valorCompra >= 200) {
+  total = valorCompra - valorCompra * 0.1;
+}
+console.log("Compra de R$ " + valorCompra + ": total R$ " + total);
+
+valorCompra = 200;
+total = valorCompra;
+if (valorCompra >= 200) {
+  total = valorCompra - valorCompra * 0.1;
+}
+console.log("Compra de R$ " + valorCompra + ": total R$ " + total);
+
+
+
+
+Exercício 3 — Acesso
+Com 20 anos e cadastro ativo, o acesso é liberado. Com 20 anos sem cadastro, ou com 16 anos e cadastro ativo, o acesso é negado.
+let idade = 20;
+let cadastroAtivo = true;
+if (idade >= 18 && cadastroAtivo) {
+  console.log("Acesso liberado");
+} else {
+  console.log("Acesso negado");
+}
+
+idade = 20;
+cadastroAtivo = false;
+if (idade >= 18 && cadastroAtivo) {
+  console.log("Acesso liberado");
+} else {
+  console.log("Acesso negado");
+}
+
+idade = 16;
+cadastroAtivo = true;
+if (idade >= 18 && cadastroAtivo) {
+  console.log("Acesso liberado");
+} else {
+  console.log("Acesso negado");
+}
+
+
+
+
+Exercício 4 — Saudação no DOM
+Com o campo vazio, a página mostra "Preencha o nome.". Com o nome Enzo, mostra "Olá, Enzo!".
+<section>
+  <h2>Exercício 4 — Saudação</h2>
+  <label for="nome">Nome:</label>
+  <input id="nome" type="text">
+  <button id="saudar" type="button">Saudar</button>
+  <p id="saudacao" role="status" aria-live="polite"></p>
+</section>
+const campoNome = document.getElementById("nome");
+const botaoSaudar = document.getElementById("saudar");
+const saidaSaudacao = document.getElementById("saudacao");
+
+botaoSaudar.addEventListener("click", function () {
+  const nome = campoNome.value.trim();
+  if (nome === "") {
+    saidaSaudacao.textContent = "Preencha o nome.";
+  } else {
+    saidaSaudacao.textContent = "Olá, " + nome + "!";
+  }
+});
+
+
+
+
+
+Exercício 5 — Classificação de temperatura
+17,9 é Frio; 18 é Agradável; 27,9 é Agradável; 28 é Quente.
+<section>
+  <h2>Exercício 5 — Temperatura</h2>
+  <label for="temperatura">Temperatura:</label>
+  <input id="temperatura" type="number" step="0.1">
+  <button id="classificar" type="button">Classificar</button>
+  <p id="clima" role="status" aria-live="polite"></p>
+</section>
+const campoTemperatura = document.getElementById("temperatura");
+const botaoClassificar = document.getElementById("classificar");
+const saidaClima = document.getElementById("clima");
+
+botaoClassificar.addEventListener("click", function () {
+  const temperatura = Number(campoTemperatura.value);
+  if (temperatura < 18) {
+    saidaClima.textContent = "Frio";
+  } else if (temperatura < 28) {
+    saidaClima.textContent = "Agradável";
+  } else {
+    saidaClima.textContent = "Quente";
+  }
+});
